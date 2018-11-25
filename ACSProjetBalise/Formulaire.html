@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title> head type</title>
+    <meta name="exemple" content="contient un head type">
+    <link rel="stylesheet" href="main.css">
+    <script>
+        
+        function validateForm() {
+            
+            var name = document.getElementById('name').value;
+            var mail = document.getElementById('mail').value;
+            var tel = document.getElementById('tel').value;
+            var radio = document.forms["Form"]["gender"].value;
+            var textarea = document.getElementById('message').value;
+            
+            var total = "";
+            
+                if (name == "") 
+                {total="\n Nom et prénom";}
+
+                if (mail == "") 
+                {total=total + "\n E-mail";}
+            
+                if (tel == "")
+                {total=total + "\n Numéro de téléphone";}
+            
+                if (radio == "")
+                {total=total + "\n Genre";}
+            
+                if (textarea == "")
+                    {total=total + "\n Votre message";}
+            
+                if (total != "")
+                {alert("Veuillez remplir les champs suivant : "+total);
+                return false;}
+        }    
+    </script>
+    
+    <title>Formulaire de contact</title>
+</head>
+<body>
+   
+        <div class="formulaire1">
+        <h2> Formulaire de contact </h2> <br>
+        
+        <form method="post" name="Form" onsubmit="return validateForm()"><br>
+        <label for="name">Nom et Prénom :</label><br>
+        <input type="text" id="name" class="border" > <br><br>
+        
+        <label for="mail">E-mail :</label><br>
+        <input type="email" id="mail" class="border" > <br><br> 
+        
+        <label for="tel">Numéro de téléphone :</label><br>
+        <input type="tel" id="tel" class="border" 
+        pattern ="[0-9]{10}"
+        maxlength="10"> <br><br>
+        
+        <input id="gender" type="radio" name="gender" value="Homme"> Homme 
+        <input id="gender" type="radio" name="gender" value="Femme">Femme<br><br>
+        
+        <textarea placeholder="Tapez votre message ici..." name="Textarea" id="message"></textarea><br>
+        <button type="submit" value="Submit" id="Envoi">Envoyer le message</button>
+        <button type="reset" value="Reset" id="Reset">Effacer les champs</button>
+    </form>
+        </div>
+        
+    </body>
+</html>
